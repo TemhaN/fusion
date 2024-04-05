@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/assets/css/adminlte.min.css">
 
     <link rel="stylesheet" href="/assets/css/customcss.css">
+    
     <style>
       canvas{
         width: 100%;
