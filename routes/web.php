@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-    
 });
-// Route::get('admins/reviews/{film_id}', 'ReviewController@showReviews')->name('admins.reviews.show');
-

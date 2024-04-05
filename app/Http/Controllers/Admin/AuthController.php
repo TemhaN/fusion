@@ -13,7 +13,12 @@ class AuthController extends Controller
 {
     public function index()
     {
-        return view('auth.login');   
+        
+        if (Auth::guard('admin')->check()) {
+            return redirect()->intended(route('index'));
+        }
+
+        return view('auth.login');
     }
 
     public function login(Request $request)
@@ -25,7 +30,6 @@ class AuthController extends Controller
 
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-
             return redirect()->intended(route('index'));
         }
 
@@ -94,3 +98,4 @@ class AuthController extends Controller
     }
 
 }
+

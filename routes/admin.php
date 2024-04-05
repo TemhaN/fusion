@@ -13,13 +13,10 @@ use App\Http\Controllers\Admin\Easter_EggController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MainController;
 
-
-Route::middleware(['guest:admin'])->group(function()
-{
-Route::get('/login', [AuthController::class, 'index'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login_process');
+Route::middleware(['guest:admin'])->group(function () {
+    Route::get('/login', [AuthController::class, 'index'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login_process');
 });
-
 
 Route::middleware(['auth:admin'])->group(function()
 {
