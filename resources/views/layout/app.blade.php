@@ -316,7 +316,6 @@
 <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js" defer></script>
 <script src="https://unpkg.com/three@0.126.0/examples/js/controls/OrbitControls.js" defer></script>
 
-<script src="/assets/js/main.js" type="module" defer></script>
 <script src="/assets/main.js" defer></script>
 
 <script>

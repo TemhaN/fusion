@@ -17,9 +17,6 @@
         display: block;
         position: fixed;
     }
-    canvas {
-
-    }
     .dg.ac {
         z-index: 2;
         margin-top: 5%;
@@ -28,6 +25,6 @@
     .layout-footer-fixed .wrapper .main-footer {
         position: fixed;
     } 
-
 </style>
+<script src="/assets/js/mainjs.js" type="module" defer></script>
 @endsection

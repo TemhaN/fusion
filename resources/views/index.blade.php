@@ -4,10 +4,7 @@
 
 @section('content')
 
-<canvas id="canvas" class="webgl"></canvas>
-<div id="loader">
-    <h1>Loading...</h1>
-</div>
+<canvas class="webgl"></canvas>
 
 <style>
 .layout-footer-fixed .wrapper .main-footer {
