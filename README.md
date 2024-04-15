@@ -7,9 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Проект на Laravel: Kinotower
+## Проект на Laravel: Fusion
 
-Kinotower - это административная панель для веб-сайта с фильмами.
+Fusion - Это и административная панель для веб-сайта с фильмами, и нечто большое.
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
@@ -25,13 +25,13 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 1. Клонируйте репозиторий
 
 ```bash
-git clone https://github.com/TemhaN/kinotower
+git clone https://github.com/TemhaN/fusion
 ```
 
 2. Перейдите в каталог проекта
 
 ```bash
-cd kinotower
+cd fusion
 ```
 
 3. Установите зависимости Composer
