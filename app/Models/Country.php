@@ -18,5 +18,10 @@ class Country extends Model
         'name',
     ];
 
+    public function films()
+    {
+        return $this->hasMany(Film::class);
+    }
+
     public $timestamps = false;
 }

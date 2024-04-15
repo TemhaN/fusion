@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\Api\FilmController;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\CountryController;
+use App\Http\Controllers\Api\GenderController;
+use App\Http\Controllers\Api\ReviewController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
@@ -18,6 +23,12 @@ use App\Http\Controllers\Admin\UserController;
 
 Route::get('/films', [FilmController::class, 'index']);
 Route::get('/film/{id}', [FilmController::class, 'show']);
+Route::get('/film/{filmId}/reviews', [ReviewController::class, 'show']);
+
+
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/countries', [CountryController::class, 'index']);
+Route::get('/genders', [GenderController::class, 'index']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
