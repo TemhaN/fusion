@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Отзывы к фильму: ' . $film->name)
+@section('title', 'Фильм: ' . $film->name)
 
 @section('content')
 

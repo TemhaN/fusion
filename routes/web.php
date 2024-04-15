@@ -17,3 +17,4 @@ use App\Http\Controllers\Admin\MainController;
 Route::get('/', function () {
     return view('index');
 });
+
