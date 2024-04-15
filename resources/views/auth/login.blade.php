@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kino | TOWER</title>
+    <title>Fusion</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,7 +38,7 @@
               <div class="card-body p-5 text-center">
                 <div class="mb-md-5 mt-md-4 pb-5">
                   <div class="card-header text-center fw-bold mb-2">
-                    <a href="../../index2.html" class="h1"><b>Kino</b>TOWER</a>
+                    <a href="../../index2.html" class="h1"><b>Fusion</b></a>
                   </div>
 
                   <p class="text-white-50 mb-5" style="color: white">Please enter your login and password!</p>

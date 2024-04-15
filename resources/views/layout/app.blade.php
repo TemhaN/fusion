@@ -190,7 +190,7 @@
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
       
-      <span class="brand-text font-weight-light">Kinotower</span>
+      <span class="brand-text font-weight-light">Fusion</span>
     </a>
     
     <!-- Sidebar -->
@@ -294,7 +294,7 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2024 <a href="https://kinotower.kz">kinotower.kz</a>.</strong>
+    <strong>Copyright &copy; 2014-2024 <a href="https://fusion.kz">Fusion.kz</a>.</strong>
     All rights reserved.
   </footer>
 </div>
