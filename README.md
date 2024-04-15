@@ -11,7 +11,7 @@
 
 Fusion - Это и административная панель для веб-сайта с фильмами, и нечто большое.
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/a3i998t" data-context="false" width="400" align="center"><a href="//imgur.com/a/a3i998t"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
