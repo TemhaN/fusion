@@ -11,7 +11,7 @@
 
 Fusion - Это и административная панель для веб-сайта с фильмами, и нечто большое.
 
-
+<p align="center"><a target="_blank"><img src="https://github.com/TemhaN/fusion/blob/main/public/assets/img/fusion.svg" width="400" alt="Fusion Logo"></a></p>
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
