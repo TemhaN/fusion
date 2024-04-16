@@ -23,7 +23,7 @@ use App\Http\Controllers\Admin\UserController;
 
 Route::get('/films', [FilmController::class, 'index']);
 Route::get('/film/{id}', [FilmController::class, 'show']);
-Route::get('/film/{filmId}/reviews', [ReviewController::class, 'show']);
+Route::get('/film/{filmId}/reviews', [FilmController::class, 'reviews']);
 
 
 Route::get('/categories', CategoryController::class);

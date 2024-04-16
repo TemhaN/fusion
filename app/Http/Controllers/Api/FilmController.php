@@ -79,12 +79,14 @@ class FilmController extends Controller
             return response()->json(['message' => 'Film not found'], 404);
         }
 
-        $reviews = $film->reviews()->where('is_approved', true)->get();
+        $reviews = $film->reviews()->where('is_approved', 1)->with(['user' => function ($query) {
+            $query->withTrashed();
+        }])->get();
+
         return response()->json([
             'reviews' => ReviewResource::collection($reviews)
         ]);
     }
-
 
 }
 
