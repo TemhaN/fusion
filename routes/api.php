@@ -26,13 +26,12 @@ Route::get('/film/{id}', [FilmController::class, 'show']);
 Route::get('/film/{filmId}/reviews', [ReviewController::class, 'show']);
 
 
-// Route::get('/categories', [CategoryController::class, 'index']);
-
 Route::get('/categories', CategoryController::class);
-
 Route::get('/countries', CountryController::class);
 Route::get('/genders', GenderController::class);
 
+// Route::get('/categories', [CategoryController::class, 'index']);
+// Route::get('/reviews', [ReviewController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

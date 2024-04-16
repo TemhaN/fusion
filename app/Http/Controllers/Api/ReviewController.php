@@ -10,15 +10,10 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function show($filmId, Request $request)
+    public function index(Request $request)
     {
-        $film = Film::find($filmId);
 
-        if (!$film) {
-            return response()->json(['message' => 'Film not found'], 404);
-        }
-
-        $reviews = $film->reviews()->where('is_approved', true);
+        $reviews = Review::where('is_approved', true)->get();
 
         if ($request->has('search')) {
             $searchTerms = explode('%', $request->query('search'));
@@ -31,8 +26,6 @@ class ReviewController extends Controller
                 });
             }
         }
-
-        $reviews = $reviews->get();
 
         return response()->json([
             'reviews' => ReviewResource::collection($reviews)
