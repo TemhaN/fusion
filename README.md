@@ -70,3 +70,12 @@ php artisan serve
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 "# fusion"
 
+
+## ☕ Support
+
+You can support me so that there will be more good open source projects in the future
+<p align="center" style="padding: 10px 0 20px 0">
+  <a href="https://boosty.to/temhan/donate" target="_blank">
+    <img src="https://static.boosty.to/assets/images/logo.86hCA.svg" alt="Donate me" height="50" width="220">
+  </a>
+</p>
