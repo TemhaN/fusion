@@ -17,7 +17,9 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'parentCategory' => $this->parent ? new CategoryBasicResource($this->parent) : null,
+            'parentCategory' => $this->parent 
+                ? new CategoryBasicResource($this->parent) 
+                : null,
             'filmCount' => $this->films()->count(),
         ];
     }

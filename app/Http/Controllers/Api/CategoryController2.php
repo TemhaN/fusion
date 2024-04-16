@@ -9,10 +9,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request)
+    public function index(Request $request)
     {
         $page = $request->query('page', 1);
         $size = $request->query('size', 10);
@@ -51,4 +48,5 @@ class CategoryController extends Controller
             'categories' => CategoryResource::collection($categories),
         ]);
     }
+
 }

@@ -26,7 +26,10 @@ Route::get('/film/{id}', [FilmController::class, 'show']);
 Route::get('/film/{filmId}/reviews', [ReviewController::class, 'show']);
 
 
-Route::get('/categories', [CategoryController::class, 'index']);
+// Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('/categories', CategoryController::class);
+
 Route::get('/countries', [CountryController::class, 'index']);
 Route::get('/genders', [GenderController::class, 'index']);
 

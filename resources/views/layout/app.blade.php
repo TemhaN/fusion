@@ -189,7 +189,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
-      <img src="/assets/img/fusion3.png" alt="" style="width: 40px;">
+      <img src="/assets/img/fusion2.png" alt="" style="width: 35px;">
       <span class="brand-text font-weight-light">Fusion</span>
     </a>
     

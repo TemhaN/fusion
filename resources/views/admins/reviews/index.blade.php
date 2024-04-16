@@ -68,7 +68,7 @@
                                 @if ($review->is_approved)
                                     <span class="badge badge-success">Одобрено</span>
                                 @else
-                                    <span class="badge badge-danger">Не одобрено</span>
+                                    <span class="badge badge-danger">На рассмотрении</span>
                                 @endif
                             </div>
                         </div>
