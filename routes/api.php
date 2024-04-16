@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::get('/films', [FilmController::class, 'index']);
 Route::get('/film/{id}', [FilmController::class, 'show']);
 Route::get('/film/{filmId}/reviews', [FilmController::class, 'reviews']);
 
+Route::post('/auth/signup', [AuthController::class, 'signup']);
 
 Route::get('/categories', CategoryController::class);
 Route::get('/countries', CountryController::class);
