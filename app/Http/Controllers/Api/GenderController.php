@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class GenderController extends Controller
 {
-    public function index(Request $request)
+    public function __invoke(Request $request)
     {
         $page = $request->query('page', 1);
         $size = $request->query('size', 30);

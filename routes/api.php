@@ -30,8 +30,8 @@ Route::get('/film/{filmId}/reviews', [ReviewController::class, 'show']);
 
 Route::get('/categories', CategoryController::class);
 
-Route::get('/countries', [CountryController::class, 'index']);
-Route::get('/genders', [GenderController::class, 'index']);
+Route::get('/countries', CountryController::class);
+Route::get('/genders', GenderController::class);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
