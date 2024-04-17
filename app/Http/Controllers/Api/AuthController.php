@@ -26,6 +26,34 @@ class AuthController extends Controller
             'id' => $user->id,
             'fio' => $user->fio
         ]);
-
     }
+    public function signin(Request $request) {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (!auth()->attempt($credentials)) {
+
+            return response([
+                'status' => 'invalid',
+                'message' => 'Wrong email or password',
+            ], 401);
+        }
+        
+        $token = auth()->user()->createToken($credentials['email']);
+
+        return response([
+            'status' => 'success',
+            'token' => $token->plainTextToken,
+            'id' => auth()->user()->id,
+            'fio' => auth()->user()->fio,
+        ]);
+    }
+    public function signout (Request $request) {
+        $request->user()->currentAccessToken()->delete();
+        
+        return response(['status' => 'success']);
+    }
+
 }

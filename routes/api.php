@@ -26,17 +26,20 @@ Route::get('/films', [FilmController::class, 'index']);
 Route::get('/film/{id}', [FilmController::class, 'show']);
 Route::get('/film/{filmId}/reviews', [FilmController::class, 'reviews']);
 
-Route::post('/auth/signup', [AuthController::class, 'signup']);
-
 Route::get('/categories', CategoryController::class);
 Route::get('/countries', CountryController::class);
 Route::get('/genders', GenderController::class);
 
+
 // Route::get('/categories', [CategoryController::class, 'index']);
 // Route::get('/reviews', [ReviewController::class, 'index']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::post('/auth/signup', [AuthController::class, 'signup']);
+Route::post('/auth/signin', [AuthController::class, 'signin']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/auth/signout', [AuthController::class, 'signout']);
 });
 
 Route::patch('users/{user}', [UserController::class, 'update'])->name('admins.users.update');
