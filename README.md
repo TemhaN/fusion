@@ -56,7 +56,7 @@ npm install
 php artisan migrate
 ```
 
-6. php artisan serve
+7. php artisan serve
 
 ```bash
 php artisan serve
