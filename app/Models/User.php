@@ -26,6 +26,7 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
     public $timestamps = true;
 
     /**
@@ -68,7 +69,7 @@ class User extends Authenticatable
         static::creating(function (User $user) {
             $user->password = Hash::make($user->password);
         });
-        
+
     }
 }
 

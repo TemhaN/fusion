@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function signup(RegisterRequest $request)
+    public function register(RegisterRequest $request)
     {
         $data = $request->validated();
 
@@ -27,7 +27,7 @@ class AuthController extends Controller
             'fio' => $user->fio
         ]);
     }
-    public function signin(Request $request) {
+    public function login(Request $request) {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],

@@ -5,10 +5,11 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\GenderController;
 use App\Http\Controllers\Api\ReviewController;
-
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UserReviewsController;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -37,15 +38,24 @@ Route::get('/genders', GenderController::class);
 // Route::get('/reviews', [ReviewController::class, 'index']);
 
 
-Route::post('/auth/signup', [AuthController::class, 'signup']);
-Route::post('/auth/signin', [AuthController::class, 'signin']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/auth/signout', [AuthController::class, 'signout']);
+
     Route::get('/user/{id}', [UserController::class, 'show']);
     Route::put('/user', [UserController::class, 'update']);
     Route::delete('/user', [UserController::class, 'destroy']);
 
+    Route::get('/user/{userId}/reviews', [UserReviewsController::class, 'index']);
+    Route::delete('/user/{userId}/reviews/{reviewId}', [UserReviewsController::class, 'destroy']);
+
+    Route::middleware(['check.id'])->group(function () {
+        Route::post('/user/{userId}/reviews', [UserReviewsController::class, 'store']);
+    });
 });
+
+
 
 Route::patch('users/{user}', [UserController::class, 'update'])->name('admins.users.update');
