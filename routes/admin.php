@@ -12,11 +12,14 @@ use App\Http\Controllers\Admin\Easter_EggController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\StaticController;
 
 Route::middleware(['guest:admin'])->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login_process');
 });
+
+// Route::get('/', [MainController::class, 'index'])->name('index');
 
 Route::middleware(['auth:admin'])->group(function()
 {
@@ -41,7 +44,7 @@ Route::middleware(['auth:admin'])->group(function()
     Route::patch('filminfo/{film_id}/approve', [ReviewController::class, 'approve'])->name('reviews.approve');
     Route::delete('filminfo/{film_id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
     Route::patch('filminfo/{film_id}/toggle', [ReviewController::class, 'toggle'])->name('reviews.toggle');
-    
+
     Route::resource('/users', UserController::class)->except(['destroy']);
     Route::resource('/users', UserController::class)->except(['show']);
     Route::get('/admins/users', [UserController::class, 'index'])->name('admins.users.index');
@@ -50,4 +53,7 @@ Route::middleware(['auth:admin'])->group(function()
     Route::patch('/users/{user}', [UserController::class, 'update'])->name('admins.users.update');
     Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
 
+    Route::get('/', [MainController::class, 'index'])->name('index');
+
+    // Route::get('/', [StaticController::class, 'countUsers']);
 });

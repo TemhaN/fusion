@@ -142,8 +142,15 @@
           </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary button-close" data-dismiss="modal">Закрыть</button>
+      <div class="d-flex justify-content-end">
+          <div class="modal-footer">
+              <div>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class='btn btn-primary button-logout'>Log out</button>
+                </form>
+              </div>
+          </div>
       </div>
     </div>
   </div>
@@ -176,44 +183,43 @@
         </a>
       </li>
     </ul>
-    <div>
-      <form action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button class='btn btn-primary button-logout'>Log out</button>
-      </form>
-    </div>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="/" class="brand-link">
-      <img src="/assets/img/fusion2.png" alt="" style="width: 35px;">
-      <span class="brand-text font-weight-light">Fusion</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="user-panel d-flex">
         <div class="image">
           <img src="{{ Auth::guard('admin')->user()->img_link }}" class="img-circle" alt="Фото админа" style="width: 50px; height: 50px;">
         </div>
         <div class="container">
           <ul class="nav nav-pills nav-sidebar">
-            <li class="nav-item">
-                <a class="nav-link" style="margin-top: 8px" href="#" data-toggle="modal" data-target="#adminModal">{{ Auth::guard('admin')->user()->username }}</a>
+            <li class="nav-item admin-nav">
+                <a class="nav-link" style="margin-top: 8px; color:black" href="#" data-toggle="modal" data-target="#adminModal">{{ Auth::guard('admin')->user()->username }}</a>
             </li>
           </ul>
+        </div>
+    </div>
+  </nav>
+
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/admin" class="brand-link">
+        <div class="ml-2">
+            <img src="/assets/img/fusion2.png" alt="" style="width: 35px;">
+            <span class="brand-text">Fusion</span>
+        </div>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="user-panel mt-3 mb-3 d-flex">
+        <div class="info ml-3">
+          <p style="font-size: 1.3rem">Справочники</p>
         </div>
       </div>
       <!-- Sidebar Menu -->
       <nav class="mt-2 menu-list">
         <ul class="nav nav-pills nav-sidebar flex-column nav-menu" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+
           <li class="nav-item">
             <a href="{{ route('countries.index') }}" class="nav-link">
               <i class="fas fa-solid fa-globe m-2"></i>

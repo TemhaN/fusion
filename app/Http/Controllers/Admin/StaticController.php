@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class MainController extends Controller
+class StaticController extends Controller
 {
-    public function index()
+    public function countUsers()
     {
         $usersCount = User::count();
 
-        return view('index', compact('usersCount'));
-        // return view('/index');
+        return view('/', compact('usersCount'));
     }
+
 }
