@@ -282,23 +282,14 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
             @yield('content')
 
-      </div><!--/. container-fluid -->
+      </div>
     </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2024 <a href="https://fusion.kz">Fusion.kz</a>.</strong>
     All rights reserved.
@@ -317,6 +308,7 @@
 <script src="/assets/js/adminlte.js"></script>
 
 <script src="/assets/js/customjs.js"></script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js" defer></script>
 <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js" defer></script>

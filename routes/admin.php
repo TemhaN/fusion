@@ -19,7 +19,6 @@ Route::middleware(['guest:admin'])->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login_process');
 });
 
-// Route::get('/', [MainController::class, 'index'])->name('index');
 
 Route::middleware(['auth:admin'])->group(function()
 {
@@ -52,8 +51,4 @@ Route::middleware(['auth:admin'])->group(function()
     Route::put('users/{user}/restore', [UserController::class, 'adminrestore'])->name('admins.users.restore');
     Route::patch('/users/{user}', [UserController::class, 'update'])->name('admins.users.update');
     Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
-
-    Route::get('/', [MainController::class, 'index'])->name('index');
-
-    // Route::get('/', [StaticController::class, 'countUsers']);
 });

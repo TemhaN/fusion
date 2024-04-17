@@ -121,6 +121,12 @@ li a i {
   font-weight: 400;
   color:gray;
 }
+.chart_cart {
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color:black;
+}
 .os-content {
   padding: 0!important;
 }
