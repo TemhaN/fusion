@@ -40,7 +40,7 @@ class AuthController extends Controller
                 'message' => 'Wrong email or password',
             ], 401);
         }
-        
+
         $token = auth()->user()->createToken($credentials['email']);
 
         return response([
@@ -52,8 +52,9 @@ class AuthController extends Controller
     }
     public function signout (Request $request) {
         $request->user()->currentAccessToken()->delete();
-        
+
         return response(['status' => 'success']);
     }
+
 
 }

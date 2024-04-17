@@ -46,7 +46,7 @@
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 
-  
+
 <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
   <div class="modal-dialog" style="width: 43%; max-width: 43%" role="document">
     <div class="modal-content">
@@ -88,31 +88,31 @@
             <form action="{{ route('admin.update') }}" method="POST" id="update-profile-form">
               @csrf
               @method('POST')
-  
+
               <div id="name-input" class="form-group" style="display: none;">
                   <label for="name">Имя пользователя</label>
                   <input type="text" class="form-control" name="username" value="{{ Auth::guard('admin')->user()->username }}">
               </div>
-  
+
               <div id="email-input" class="form-group" style="display: none;">
                   <label for="email">Email</label>
                   <input type="email" class="form-control" id="email" name="email" value="{{ Auth::guard('admin')->user()->email }}">
               </div>
-  
+
               <div id="img_link-input" class="form-group" style="display: none;">
                   <label for="img_link">Аватар (Ссылка)</label>
                   <input type="img_link" class="form-control" id="img_link" name="img_link" value="{{ Auth::guard('admin')->user()->img_link }}">
               </div>
-  
+
               <div id="password-input" class="form-group" style="display: none;">
                   <label for="password">Новый пароль</label>
                   <input type="password" class="form-control" id="password" name="password">
                   <label for="password_confirmation">Подтвердите новый пароль</label>
                   <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
               </div>
-  
+
               <button type="button" id="save-changes-btn" class="btn btn-sm btn-success button-68" style="margin-left: 5px;">Сохранить изменения</button>
-  
+
               <div class="modal" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
                 <div class="div-fade-back" style="width: 100%; height:100%; position:absolute; background-color: rgba(0,0,0,0.6)"></div>
                   <div class="modal-dialog" role="document">
@@ -123,7 +123,7 @@
                                   <span aria-hidden="true" style="font-size: 2.5rem; color: #333333;">&times;</span>
                               </button>
                           </div>
-                          
+
                           <div class="modal-body">
                               Вы действительно хотите применить изменения?
                               <div class="form-group">
@@ -177,7 +177,7 @@
       </li>
     </ul>
     <div>
-      <form action="{{ route('logout') }}" method="POST"> 
+      <form action="{{ route('logout') }}" method="POST">
         @csrf
         <button class='btn btn-primary button-logout'>Log out</button>
       </form>
@@ -192,11 +192,11 @@
       <img src="/assets/img/fusion2.png" alt="" style="width: 35px;">
       <span class="brand-text font-weight-light">Fusion</span>
     </a>
-    
+
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-    
+
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="{{ Auth::guard('admin')->user()->img_link }}" class="img-circle" alt="Фото админа" style="width: 50px; height: 50px;">
@@ -282,7 +282,7 @@
     <section class="content">
       <div class="container-fluid">
             @yield('content')
- 
+
       </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
