@@ -21,15 +21,15 @@ class UserController extends Controller
 
     public function update(UserRequest $request)
     {
-        $data = $request->validated();
+        $data = $request-> validated();
         auth()->user()->update($data);
 
         return response(['status' => 'success'], 200);
     }
-    public function delete()
+    public function destroy()
     {
-        auth()->user()->tokens->delete();
         auth()->user()->delete();
+        auth()->user()->tokens->delete();
 
         return response('', 204);
     }

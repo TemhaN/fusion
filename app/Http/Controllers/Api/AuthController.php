@@ -50,11 +50,10 @@ class AuthController extends Controller
             'fio' => auth()->user()->fio,
         ]);
     }
-    public function signout (Request $request) {
+    public function signout(Request $request) {
         $request->user()->currentAccessToken()->delete();
 
         return response(['status' => 'success']);
     }
-
 
 }

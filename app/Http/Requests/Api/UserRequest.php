@@ -12,7 +12,7 @@ class UserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
     {
         return [
             'fio' => ['nullable', 'string', 'max:255'],
-            'email' => ['nullable', 'string', 'email', 'max:255', Rule::unique('users')->ignore(auth()->user()->id)],
+            'email' => ['nullable', 'string', 'email', 'max:255', Rule::unique('users')->ignore(auth()->user()->id),],
             'birthday' => ['nullable', 'date'],
             'gender_id' => ['nullable', 'integer', 'exists:genders,id'],
         ];

@@ -43,7 +43,8 @@ Route::post('/auth/signin', [AuthController::class, 'signin']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/auth/signout', [AuthController::class, 'signout']);
     Route::get('/user/{id}', [UserController::class, 'show']);
-    Route::put('/user/{id}/update', [UserController::class, 'update']);
+    Route::put('/user', [UserController::class, 'update']);
+    Route::delete('/user', [UserController::class, 'destroy']);
 
 });
 
