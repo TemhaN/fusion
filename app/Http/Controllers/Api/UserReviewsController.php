@@ -51,13 +51,17 @@ class UserReviewsController extends Controller
         $user = User::findOrFail($userId);
         $review = $user->reviews()->findOrFail($reviewId);
 
+        // if (!$review || $review->user->id != $userId)  {
+        //     return response(['message' => 'Review not found'], 404);
+        // }
+
         if ($review->user_id != auth()->user()->id) {
             return response(['error' => 'You can only delete your own reviews'], 403);
         }
 
         $review->delete();
 
-        return response(['status' => 'success'], 200);
+        return response('', 204);
     }
 
 }
