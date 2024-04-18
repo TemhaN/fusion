@@ -21,7 +21,7 @@ class UserRatingResource extends JsonResource
                 'name' => $this->film->name,
             ],
             'score' => $this->ball,
-            'created_at' => $this->created_at,
+            'created_at' => $this->created_at
         ];
     }
 }
