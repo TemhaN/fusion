@@ -17,14 +17,14 @@ class CategoryController extends Controller
         $page = $request->query('page', 1);
         $size = $request->query('size', 10);
         $sortBy = $request->query('sortBy', 'name');
-        $sortDir = $request->query('sortDir', 'asc');        
+        $sortDir = $request->query('sortDir', 'asc');
 
         if (!in_array($sortDir, ['asc', 'desc'])) {
             $sortDir = 'asc';
         }
 
         $categories = Category::query();
-        
+
         if ($request->has('search')) {
             $search = '%' . $request->query('search') . '%';
             $categories = $categories->where(function ($query) use ($search) {
@@ -34,7 +34,6 @@ class CategoryController extends Controller
                     });
             });
         }
-
         if ($sortBy === 'name') {
             $categories = $categories->orderBy($sortBy, $sortDir);
         }
@@ -46,7 +45,7 @@ class CategoryController extends Controller
         }
 
         $categories = $categories->paginate($size);
-        
+
         return response([
             'categories' => CategoryResource::collection($categories),
         ]);

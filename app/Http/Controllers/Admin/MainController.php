@@ -11,6 +11,7 @@ use App\Models\CategoryFilm;
 use App\Models\Country;
 use App\Models\Film;
 use App\Models\Rating;
+use App\Models\Review;
 use App\Models\User;
 
 use Illuminate\Http\Request;
@@ -40,6 +41,10 @@ class MainController extends Controller
 
         $filmNames = Film::whereIn('id', $topRatedFilms->pluck('film_id'))->pluck('name', 'id')->values()->all();
 
+        $reviews = Review::where('is_approved', 0)->get();
+        $films = Film::withCount('reviews')->get();
+        $ratings = Rating::all();
+
         $data = [
             'usersCount' => $usersCount,
             'filmsCount' => $filmsCount,
@@ -48,8 +53,13 @@ class MainController extends Controller
             'categoriesCount' => $categoriesCount,
             'countriesCount' => $countriesCount,
             'categoryFilmCounts' => $categoryFilmCounts,
-            'categoryNames' => $categoryNames
+            'categoryNames' => $categoryNames,
+            'reviews' => $reviews,
+            'films' => $films,
+            'ratings' => $ratings
         ];
+
+        // $film = Film::findOrFail($film_id);
 
         return view('index', $data);
     }
