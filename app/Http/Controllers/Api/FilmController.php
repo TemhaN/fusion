@@ -13,16 +13,16 @@ class FilmController extends Controller
     public function index(Request $request)
     {
         $page = $request->query('page', 1);
-        $size = $request->query('size', 5);
+        $size = $request->query('size', 10);
         $sortBy = $request->query('sortBy', 'name');
-        $sortDir = $request->query('sortDir', 'asc');        
+        $sortDir = $request->query('sortDir', 'asc');
 
         if (!in_array($sortDir, ['asc', 'desc'])) {
             $sortDir = 'asc';
         }
 
         $films = Film::query();
-        
+
         if ($sortBy === 'name') {
             $films = $films->orderBy($sortBy, $sortDir);
         }
@@ -49,9 +49,9 @@ class FilmController extends Controller
             });
         }
 
-    
+
         $films = $films->paginate($size);
-        
+
         return response([
             'page' => $films->currentPage(),
             'size' => $films->perPage(),
