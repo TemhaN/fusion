@@ -43,7 +43,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/auth/signout', [AuthController::class, 'signout']);
+    Route::post('/signout', [AuthController::class, 'signout']);
 
     Route::get('/user/{id}', [UserController::class, 'show']);
     Route::put('/user', [UserController::class, 'update']);
