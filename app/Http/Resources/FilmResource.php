@@ -26,10 +26,11 @@ class FilmResource extends JsonResource
             'link_video' => $this->link_video,
             'created_at' => new Carbon($this->created_at),
             'country' => $this->country,
-            'categories' =>$this->categories ? 
+            'categories' =>$this->categories ?
                 CategoryBasicResource::collection($this->categories) : null,
             'ratingAvg' => round($this->ratings()->avg('ball'), 1),
             'reviewCount' => $this->reviews()->count(),
+            // 'favoriteCount' => $this->favorites()->count(),
         ];
     }
 }

@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ActorsFilmsResource;
+use App\Http\Resources\ActorsResource;
 use App\Http\Resources\FilmResource;
 use App\Http\Resources\ReviewResource;
+use App\Models\Actor;
+use App\Models\Actors_films;
+use App\Models\Favorites;
 use App\Models\Film;
 
 use Illuminate\Http\Request;
@@ -89,6 +94,20 @@ class FilmController extends Controller
         ]);
     }
 
+    public function favorites($filmId, Request $request)
+    {
+        $likesCount = Favorites::where('film_id', $filmId)->count();
+
+        return response()->json(['likes_count' => $likesCount]);
+    }
+
+    public function actors(Request $request, $film_id)
+    {
+        $actors_ids = Actors_films::where('film_id', $film_id)->pluck('actors_id');
+        $actors = Actor::whereIn('id', $actors_ids)->get();
+
+        return ActorsResource::collection($actors);
+    }
 
 }
 

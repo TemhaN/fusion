@@ -25,6 +25,7 @@ class UserResource extends JsonResource
             ],
             'reviewCount' => $this->reviews()->count(),
             'ratingCount' => $this->ratings()->count(),
+            'favoriteCount' => $this->favorites()->count(),
         ];
     }
 }
