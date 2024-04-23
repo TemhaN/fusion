@@ -45,6 +45,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/signout', [AuthController::class, 'signout']);
 
+    // Route::get('/user/{id}/reviews', [UserController::class, 'show']);
     Route::get('/user/{id}', [UserController::class, 'show']);
     Route::put('/user', [UserController::class, 'update']);
     Route::delete('/user', [UserController::class, 'destroy']);

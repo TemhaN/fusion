@@ -19,6 +19,7 @@ class UserReviewsResource extends JsonResource
             'film' => [
                 'id' => $this->film->id,
                 'name' => $this->film->name,
+                'link_img' => $this->film->link_img
             ],
             'message' => $this->message,
             'is_approved' => $this->is_approved,

@@ -25,7 +25,7 @@ class UserRequest extends FormRequest
             'id' => ['integer', 'required'],
             'fio' => ['string', 'required', 'max:255'],
             'email' => ['string', 'required', 'email', 'max:255'],
-            'password' => ['string', 'required', 'min:8'],
+            'password' => ['string', 'required', 'min:6'],
             'birthday' => ['date', 'required'],
             'gender_id' => ['integer', 'required'],
             'created_at' => ['date', 'required'],
