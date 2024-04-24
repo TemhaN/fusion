@@ -68,7 +68,7 @@ class FilmController extends Controller
             return response()->json(['message' => 'Film not found'], 404);
         }
 
-        return new FilmResource($film);
+        return response (new FilmResource($film));
     }
 
     public function reviews($filmId, Request $request)
