@@ -30,7 +30,6 @@ class CountryController extends Controller
     }
 
 
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -38,7 +37,7 @@ class CountryController extends Controller
     {
         $country = Country::findOrFail($id);
 
-        return view('admins.countries.create' , compact('country')); 
+        return view('admins.countries.create' , compact('country'));
     }
 
     /**

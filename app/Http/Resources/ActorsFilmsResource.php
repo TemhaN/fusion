@@ -16,7 +16,7 @@ class ActorsFilmsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'actors_id' => $this->actors()->id,
+            'actor_id' => $this->actors()->id,
             'film_id' => $this->films()->id,
         ];
     }

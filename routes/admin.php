@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ActorController;
+use App\Http\Controllers\Admin\ActorFilmController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -30,12 +32,17 @@ Route::middleware(['auth:admin'])->group(function()
     Route::resource('/categories', CategoryController::class)->except(['show']);
     Route::resource('/films', FilmController::class)->except(['show']);
     Route::resource('categoryfilms', CategoryFilmController::class);
+    Route::resource('actorfilms', ActorFilmController::class);
+
     Route::resource('/reviews', ReviewController::class);
     Route::resource('/ratings', RatingFilmController::class);
+    Route::resource('/actors', ActorController::class);
+
     Route::resource('/easter_egg', Easter_EggController::class);
 
 
     Route::patch('/categoryfilm/{id}', [CategoryFilmController::class, 'update'])->name('categoryfilm.update');
+    Route::patch('/actorfilm/{id}', [ActorFilmController::class, 'update'])->name('actorfilm.update');
 
     Route::get('/filminfo/{film_id}', [ReviewController::class, 'show'])->name('filminfo.show');
     Route::get('/filminfo', [ReviewController::class, 'show'])->name('admins.films.show');

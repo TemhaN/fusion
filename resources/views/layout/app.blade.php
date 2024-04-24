@@ -262,6 +262,18 @@
               <p>Оценки</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('actors.index') }}" class="nav-link">
+              <i class="fas fa-solid fa-hand-scissors m-2"></i>
+              <p>Актёры</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('actorfilms.index') }}" class="nav-link">
+              <i class="fas fa-solid fa-users m-2"></i>
+              <p>Актёры и Фильмы</p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

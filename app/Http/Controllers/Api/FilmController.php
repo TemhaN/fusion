@@ -106,7 +106,9 @@ class FilmController extends Controller
         $actors_ids = Actors_films::where('film_id', $film_id)->pluck('actors_id');
         $actors = Actor::whereIn('id', $actors_ids)->get();
 
-        return ActorsResource::collection($actors);
+        return response()->json([
+            'actors' => ActorsResource::collection($actors)
+        ]);
     }
 
 }

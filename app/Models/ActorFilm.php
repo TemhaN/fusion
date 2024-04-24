@@ -5,26 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryFilm extends Model
+class ActorFilm extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    public function category()
+    public $timestamps = false;
+
+    // protected $table = 'actor_films';
+
+    public function actor()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Actor::class);
     }
+
     public function film()
     {
         return $this->belongsTo(Film::class);
     }
-
     protected $fillable = [
-        'category_id',
+        'actor_id',
         'film_id',
     ];
+
+
 }
