@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserFavoritesController;
+use App\Http\Controllers\Api\UserLikeReviewController;
 use App\Http\Controllers\Api\UserRatingController;
 use App\Http\Controllers\Api\UserReviewsController;
 
@@ -34,6 +35,8 @@ Route::get('/film/{filmId}/reviews', [FilmController::class, 'reviews']);
 Route::get('/film/{filmId}/favorites', [FilmController::class, 'favorites']);
 Route::get('/film/{filmId}/actors', [FilmController::class, 'actors']);
 
+Route::get('/review/{reviewId}/likes', [UserLikeReviewController::class, 'index']);
+
 Route::get('/categories', CategoryController::class);
 Route::get('/countries', CountryController::class);
 Route::get('/genders', GenderController::class);
@@ -57,10 +60,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user/{userId}/favorites', [UserFavoritesController::class, 'index']);
     Route::delete('/user/{userId}/favorite/{favoritesId}', [UserFavoritesController::class, 'destroy']);
 
+
     Route::middleware(['check.id'])->group(function () {
         Route::post('/user/{userId}/reviews', [UserReviewsController::class, 'store']);
         Route::post('/user/{userId}/ratings', [UserRatingController::class, 'store']);
         Route::post('/user/{userId}/favorites', [UserFavoritesController::class, 'store']);
+
+        Route::post('/user/{userId}/reviews/{reviewId}', [UserLikeReviewController::class, 'store']);
 
     });
 });

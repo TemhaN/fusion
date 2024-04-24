@@ -67,8 +67,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Favorites::class);
     }
-
-
+    public function likes()
+    {
+        return $this->hasMany(Likes::class);
+    }
     protected static function booted(): void {
 
         static::creating(function (User $user) {
