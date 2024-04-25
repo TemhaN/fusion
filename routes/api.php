@@ -51,14 +51,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/user', [UserController::class, 'destroy']);
 
     Route::get('/user/{userId}/reviews', [UserReviewsController::class, 'index']);
-    Route::delete('/user/{userId}/reviews/{reviewId}', [UserReviewsController::class, 'destroy']);
+    Route::delete('/user/{userId}/review/{reviewId}', [UserReviewsController::class, 'destroy']);
 
     Route::get('/user/{userId}/ratings', [UserRatingController::class, 'index']);
     Route::delete('/user/{userId}/rating/{ratingId}', [UserRatingController::class, 'destroy']);
 
     Route::middleware(['check.id'])->group(function () {
         Route::post('/user/{userId}/reviews', [UserReviewsController::class, 'store']);
-        Route::post('/user/{userId}/rating', [UserRatingController::class, 'store']);
+        Route::post('/user/{userId}/ratings', [UserRatingController::class, 'store']);
     });
 });
 

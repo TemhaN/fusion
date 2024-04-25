@@ -23,7 +23,7 @@ class UserRatingRequest extends FormRequest
     {
         return [
             'film_id' => ['required'],
-            'ball' => ['required', 'integer', 'min:1', 'max:10'],
+            'ball' => ['required', 'integer', 'min:1', 'max:5'],
             'user_id' => ['required'],
         ];
     }

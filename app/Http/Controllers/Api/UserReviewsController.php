@@ -27,6 +27,7 @@ class UserReviewsController extends Controller
         if (auth()->user()->id != $id) {
             $reviews->where('is_approved', 1);
         }
+        
         return response(['reviews' => UserReviewsResource::collection($reviews->get())]);
     }
 
@@ -38,7 +39,8 @@ class UserReviewsController extends Controller
         $data = $request->validated();
 
         $review = Review::create($data);
-        $review->is_approved = 0;
+
+        $review->is_approved = 1;
 
         return response(new UserReviewsResource($review), 201);
     }

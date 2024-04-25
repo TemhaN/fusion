@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\FilmResource;
 use App\Http\Resources\ReviewResource;
 use App\Models\Film;
+
 use Illuminate\Http\Request;
 
 class FilmController extends Controller
@@ -87,6 +88,7 @@ class FilmController extends Controller
             'reviews' => ReviewResource::collection($reviews)
         ]);
     }
+
 
 }
 
