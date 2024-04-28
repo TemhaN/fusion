@@ -32,19 +32,32 @@ class UserRatingController extends Controller
      */
     public function store(UserRatingRequest $request)
     {
-        $data = $request->validated();
 
-        $existingRating = Rating::where('user_id', $data['user_id'])
-        ->where('film_id', $data['film_id'])
-        ->first();
+        $userId = $request->input('user_id');
+        $filmId = $request->input('film_id');
+        $ball = $request->input('ball');
 
-        if ($existingRating) {
-            return response()->json(['error' => 'Rating already exists for this user and movie'], 409);
+        if (!$userId || !$filmId || !$ball) {
+            return response()->json(['error' => 'User ID, Film ID, and Score are required'], 400);
         }
 
-        $rating = Rating::create($data);
-        
+        $existingRating = Rating::where('user_id', $userId)
+            ->where('film_id', $filmId)
+            ->first();
+
+        if ($existingRating) {
+            $existingRating->update(['ball' => $ball]);
+            return response(new UserRatingResource($existingRating), 200);
+        }
+
+        $rating = Rating::create([
+            'user_id' => $userId,
+            'film_id' => $filmId,
+            'ball' => $ball,
+        ]);
+
         return response(new UserRatingResource($rating), 201);
+        
     }
 
     /**

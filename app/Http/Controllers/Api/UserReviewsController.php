@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UserReviewsRequest;
 use App\Http\Resources\UserReviewsResource;
+use App\Models\Likes;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,21 +16,32 @@ class UserReviewsController extends Controller
      * Display a listing of the resource.
      */
 
-    public function index($id)
-    {
-        $user = User::find($id);
+public function index($id) {
 
-        if (!$user) {
-            return response(['message' => 'User not found'], 404);
-        }
-        $reviews = $user->reviews();
+    $user = User::find($id);
 
-        if (auth()->user()->id != $id) {
-            $reviews->where('is_approved', 1);
-        }
-        
-        return response(['reviews' => UserReviewsResource::collection($reviews->get())]);
+    if (!$user) {
+        return response(['message' => 'User not found'], 404);
     }
+
+    $reviews = $user->reviews();
+
+    if (auth()->user()->id != $id) {
+        $reviews->where('is_approved', 1);
+    }
+
+    $reviews = $reviews->get();
+
+    foreach ($reviews as $review) {
+        $review->likesCount = Likes::where('review_id', $review->id)->where('like', 1)->count();
+    }
+
+    return response()->json([
+        'reviews' => UserReviewsResource::collection($reviews)
+    ]);
+}
+
+
 
     /**
      * Store a newly created resource in storage.

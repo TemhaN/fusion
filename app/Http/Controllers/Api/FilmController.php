@@ -8,10 +8,11 @@ use App\Http\Resources\ActorsResource;
 use App\Http\Resources\FilmResource;
 use App\Http\Resources\ReviewResource;
 use App\Models\Actor;
+use App\Models\ActorFilm;
 use App\Models\Actors_films;
 use App\Models\Favorites;
 use App\Models\Film;
-
+use App\Models\Likes;
 use Illuminate\Http\Request;
 
 class FilmController extends Controller
@@ -89,6 +90,10 @@ class FilmController extends Controller
             $query->withTrashed();
         }])->get();
 
+        foreach ($reviews as $review) {
+            $review->likesCount = Likes::where('review_id', $review->id)->where('like', 1)->count();
+        }
+
         return response()->json([
             'reviews' => ReviewResource::collection($reviews)
         ]);
@@ -103,7 +108,7 @@ class FilmController extends Controller
 
     public function actors(Request $request, $film_id)
     {
-        $actors_ids = Actors_films::where('film_id', $film_id)->pluck('actors_id');
+        $actors_ids = ActorFilm::where('film_id', $film_id)->pluck('actor_id');
         $actors = Actor::whereIn('id', $actors_ids)->get();
 
         return response()->json([

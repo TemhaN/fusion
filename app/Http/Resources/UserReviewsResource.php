@@ -24,6 +24,7 @@ class UserReviewsResource extends JsonResource
             'message' => $this->message,
             'is_approved' => $this->is_approved,
             'created_at' => $this->created_at,
+            'likesCount' => $this->likesCount,
         ];
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\FilmController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\GenderController;
+use App\Http\Controllers\Api\MainController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
@@ -35,7 +36,10 @@ Route::get('/film/{filmId}/reviews', [FilmController::class, 'reviews']);
 Route::get('/film/{filmId}/favorites', [FilmController::class, 'favorites']);
 Route::get('/film/{filmId}/actors', [FilmController::class, 'actors']);
 
-Route::get('/review/{reviewId}/likes', [UserLikeReviewController::class, 'index']);
+Route::get('/topRatedFilmLink', [MainController::class, 'getTopRatedFilmLink']);
+Route::get('/getTopRatedFilmList', [MainController::class, 'getTopRatedFilmList']);
+
+// Route::get('/review/{reviewId}/likes', [UserReviewsController::class, 'index']);
 
 Route::get('/categories', CategoryController::class);
 Route::get('/countries', CountryController::class);
@@ -58,15 +62,18 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/user/{userId}/rating/{ratingId}', [UserRatingController::class, 'destroy']);
 
     Route::get('/user/{userId}/favorites', [UserFavoritesController::class, 'index']);
-    Route::delete('/user/{userId}/favorite/{favoritesId}', [UserFavoritesController::class, 'destroy']);
+    Route::delete('/user/{userId}/favorite/{filmId}', [UserFavoritesController::class, 'destroy']);
 
 
     Route::middleware(['check.id'])->group(function () {
+
         Route::post('/user/{userId}/reviews', [UserReviewsController::class, 'store']);
+
         Route::post('/user/{userId}/ratings', [UserRatingController::class, 'store']);
+
         Route::post('/user/{userId}/favorites', [UserFavoritesController::class, 'store']);
 
-        Route::post('/user/{userId}/reviews/{reviewId}', [UserLikeReviewController::class, 'store']);
+        Route::post('/user/{userId}/review', [UserLikeReviewController::class, 'store']);
 
     });
 });

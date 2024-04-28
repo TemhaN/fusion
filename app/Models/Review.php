@@ -20,6 +20,7 @@ class Review extends Model
         'film_id',
         'message',
         'is_approved',
+        'likesCount',
     ];
 
     public function film()

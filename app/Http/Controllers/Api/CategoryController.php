@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function __invoke(Request $request)
     {
         $page = $request->query('page', 1);
-        $size = $request->query('size', 10);
+        $size = $request->query('size', 100);
         $sortBy = $request->query('sortBy', 'name');
         $sortDir = $request->query('sortDir', 'asc');
 

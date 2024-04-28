@@ -22,6 +22,7 @@ class ReviewResource extends JsonResource
             ],
             'message' => $this->message,
             'created_at' => $this->created_at,
+            'likesCount' => $this->likesCount,
         ];
     }
 }
