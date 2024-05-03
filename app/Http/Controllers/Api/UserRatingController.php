@@ -57,7 +57,7 @@ class UserRatingController extends Controller
         ]);
 
         return response(new UserRatingResource($rating), 201);
-        
+
     }
 
     /**

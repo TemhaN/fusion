@@ -59,7 +59,7 @@ class ReviewController extends Controller
         $averageRating = round(Rating::where('film_id', $film_id)->avg('ball'), 1);
         $ratings = Rating::where('film_id', $film_id)->with('user')->get();
 
-        return view('admins.films.show', compact('reviews', 'film', 'users', 'ratings', 'averageRating')); 
+        return view('admins.films.show', compact('reviews', 'film', 'users', 'ratings', 'averageRating'));
     }
 
     /**

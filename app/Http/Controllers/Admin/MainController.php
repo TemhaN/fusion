@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\DB;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\Actor;
 use App\Models\Category;
 use App\Models\CategoryFilm;
 use App\Models\Country;
@@ -24,6 +24,8 @@ class MainController extends Controller
         $filmsCount = Film::count();
         $categoriesCount = Category::count();
         $countriesCount = Country::count();
+        $ratingsCount = Rating::count();
+        $actorsCount = Actor::count();
 
         $categoryFilmCounts = CategoryFilm::select('category_id', DB::raw('count(*) as total'))
             ->groupBy('category_id')
@@ -52,6 +54,8 @@ class MainController extends Controller
             'filmNames' => $filmNames,
             'categoriesCount' => $categoriesCount,
             'countriesCount' => $countriesCount,
+            'ratingsCount' => $ratingsCount,
+            'actorsCount' => $actorsCount,
             'categoryFilmCounts' => $categoryFilmCounts,
             'categoryNames' => $categoryNames,
             'reviews' => $reviews,
@@ -64,4 +68,3 @@ class MainController extends Controller
         return view('index', $data);
     }
 }
-

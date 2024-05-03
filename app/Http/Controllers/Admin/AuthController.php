@@ -13,7 +13,7 @@ class AuthController extends Controller
 {
     public function index()
     {
-        
+
         if (Auth::guard('admin')->check()) {
             return redirect()->intended(route('index'));
         }
@@ -58,17 +58,17 @@ class AuthController extends Controller
     }
 
     public function showAdmins() {
-        
+
         $admins = Admin::all();
-        
+
         return view('admin.index', compact('admins'));
     }
 
     public function getLoggedInAdmin()
-    
+
     {
         $admin = Auth::guard('admin')->user();
-        
+
         return view('admin.profile', ['admin' => $admin], compact('admin'));
     }
 
@@ -98,4 +98,3 @@ class AuthController extends Controller
     }
 
 }
-

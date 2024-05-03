@@ -14,14 +14,14 @@ class GenderController extends Controller
         $page = $request->query('page', 1);
         $size = $request->query('size', 30);
         $sortBy = $request->query('sortBy', 'name');
-        $sortDir = $request->query('sortDir', 'asc');        
+        $sortDir = $request->query('sortDir', 'asc');
 
         if (!in_array($sortDir, ['asc', 'desc'])) {
             $sortDir = 'asc';
         }
 
         $genders = Gender::query();
-        
+
         if ($request->has('search')) {
             $genders = $genders->where('name', 'like', '%' . $request->query('search') . '%');
         }
@@ -31,7 +31,7 @@ class GenderController extends Controller
         }
 
         $genders = $genders->paginate($size);
-        
+
         return response([
             'genders' => GenderResource::collection($genders),
         ]);

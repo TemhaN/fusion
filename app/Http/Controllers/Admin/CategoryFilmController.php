@@ -78,7 +78,7 @@ class CategoryFilmController extends Controller
     public function destroy(CategoryFilm $categoryfilm)
     {
         $categoryfilm->delete();
-        
+
         return back();
     }
 }

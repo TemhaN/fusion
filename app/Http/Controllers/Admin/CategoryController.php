@@ -36,7 +36,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $categories = Category::all();
 
-        return view('admins.categories.create', compact('categories', 'category')); 
+        return view('admins.categories.create', compact('categories', 'category'));
     }
 
     /**

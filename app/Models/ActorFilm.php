@@ -11,8 +11,6 @@ class ActorFilm extends Model
 
     public $timestamps = false;
 
-    // protected $table = 'actor_films';
-
     public function actor()
     {
         return $this->belongsTo(Actor::class);

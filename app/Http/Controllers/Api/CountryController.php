@@ -14,14 +14,14 @@ class CountryController extends Controller
         $page = $request->query('page', 1);
         $size = $request->query('size', 30);
         $sortBy = $request->query('sortBy', 'name');
-        $sortDir = $request->query('sortDir', 'asc');        
+        $sortDir = $request->query('sortDir', 'asc');
 
         if (!in_array($sortDir, ['asc', 'desc'])) {
             $sortDir = 'asc';
         }
 
         $countries = Country::query();
-        
+
         if ($request->has('search')) {
             $countries = $countries->where('name', 'like', '%' . $request->query('search') . '%');
         }
@@ -37,7 +37,7 @@ class CountryController extends Controller
         }
 
         $countries = $countries->paginate($size);
-        
+
         return response([
             'countries' => CountryResource::collection($countries),
         ]);

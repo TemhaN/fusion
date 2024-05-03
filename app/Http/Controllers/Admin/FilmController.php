@@ -57,7 +57,7 @@ class FilmController extends Controller
 	    $countries = Country::all();
 		$categories = Category::all();
 
-        return view('admins.films.create' , compact('film', 'countries', 'categories')); 
+        return view('admins.films.create' , compact('film', 'countries', 'categories'));
     }
 
     /**

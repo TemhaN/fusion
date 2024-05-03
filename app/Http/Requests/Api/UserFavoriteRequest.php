@@ -32,5 +32,5 @@ class UserFavoriteRequest extends FormRequest
             'user_id' => auth()->user()->id,
         ]);
     }
-    
+
 }

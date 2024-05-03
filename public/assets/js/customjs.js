@@ -18,5 +18,3 @@ document
     .addEventListener("click", function () {
         document.getElementById("img_link-input").style.display = "block";
     });
-
-

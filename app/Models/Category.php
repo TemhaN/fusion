@@ -22,7 +22,7 @@ class Category extends Model
 
     public $timestamps = false;
 
-    public function parent() 
+    public function parent()
     {
         return $this->belongsTo(Category::class);
     }

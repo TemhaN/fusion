@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         $users = User::whereNull('deleted_at')->get();
         $genders = Gender::all();
-        
+
         $deletedUsers = User::onlyTrashed()->get();
         return view('admins.users.index', compact('users', 'deletedUsers', 'genders'));
     }
@@ -33,11 +33,11 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $users = User::all();
-        
+
         $genders = Gender::findOrFail($id);
 
 
-        return view('admins.users.create', compact('users', 'user', 'genders')); 
+        return view('admins.users.create', compact('users', 'user', 'genders'));
     }
 
     /**
