@@ -83,7 +83,11 @@
             </thead>
             <tbody class="categoriesfilms-list">
               @foreach ($categriesfilm as $categoryfilm)
-                @if ($categoryfilm->category)
+                @if (
+                    $categoryfilm->category &&
+                        !$categoryfilm->category->deleted_at &&
+                        $categoryfilm->film &&
+                        !$categoryfilm->film->deleted_at)
                   <tr>
                     <th>
                       <a href="#" data-toggle="modal"
